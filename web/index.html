@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/JSP_Servlet/Html.html to edit this template
+-->
+<html>
+    <head>
+        <title>Home</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <script>
+            function verificarSessao() {
+
+                var xhr = new XMLHttpRequest();
+
+                xhr.open('GET', 'verificar-sessao', true);
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4 && xhr.status === 200) {
+                        var response = xhr.responseText;
+
+                        if (response === 'false') {
+                            window.location.href = "login";
+                        } else {
+                            window.location.href = "home";
+                        }
+                    }
+                };
+                xhr.send();
+            }
+            verificarSessao();
+        </script>
+    </head>
+    <body> 
+    </body>
+</html>
